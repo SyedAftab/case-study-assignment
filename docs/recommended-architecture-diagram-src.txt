@@ -1,0 +1,114 @@
+title Cleaning Platform – Microservices Architecture
+
+// External Clients
+Clients [icon: users] {
+  Web App [icon: monitor]
+  Mobile App [icon: mobile]
+  "Third-party Integrations" [icon: plug]
+}
+
+// Infrastructure Layer (Kubernetes Cluster)
+K8s Deployment [icon: k8s-cluster, color: blue, label: "K8s Deployment"] {
+  "Namespace cleaning-platform" [icon: k8s-namespace, label: "Namespace: cleaning-platform"] {
+
+    // API Layer
+    API Layer [icon: cloud, color: purple] {
+      Ingress [icon: cloud, label: "Ingress"]
+      Discovery Service [icon: cloud, label: "Discovery"]
+      Configuration Service [icon: cloud, label: "ConfigUration"]
+      OIDC [icon: cloud, label: "OIDC"]
+    }
+
+    // Messaging Layer
+    Messaging [icon: kafka, color: orange] {
+      Kafka Broker [icon: kafka, label: "Kafka"]
+      Booking Events Topic [icon: kafka, label: "booking-events"]
+      Cleaner Availability Updates Topic [icon: kafka, label: "cleaner-availability-updates"]
+    }
+
+    // Caching Layer
+    Redis Cache [icon: redis, color: yellow, label: "Redis Cache"]
+
+    // Observability Stack
+    Observability [icon: bar-chart-2, color: green] {
+      Prometheus [icon: prometheus]
+      Grafana [icon: grafana]
+      Loki [icon: loki]
+    }
+
+    // Core Microservices
+    Cleaner Service Domain [icon: k8s-pod, color: red, label: "Cleaner Service"] {
+      Cleaner Service [icon: k8s-pod, label: "Service"]
+      Cleaner DB [icon: mysql, color: gray, label: "cleaner-db"]
+      Cleaner Promtail [icon: log, label: "Promtail Agent"]
+    }
+    Customer Service Domain [icon: k8s-pod, color: red, label: "Customer Service"] {
+      Customer Service [icon: k8s-pod, label: "Service"]
+      Customer DB [icon: mysql, color: gray, label: "customer-db"]
+      Customer Promtail [icon: log, label: "Promtail Agent"]
+    }
+    Vehicle Service Domain [icon: k8s-pod, color: red, label: "Vehicle Service"] {
+      Vehicle Service [icon: k8s-pod, label: "Service"]
+      Vehicle DB [icon: mysql, color: gray, label: "vehicle-db"]
+      Vehicle Promtail [icon: log, label: "Promtail Agent"]
+    }
+    Booking Service Domain [icon: k8s-pod, color: red, label: "Booking Service"] {
+      Booking Service [icon: k8s-pod, label: "Service"]
+      Booking DB [icon: mysql, color: gray, label: "booking-db"]
+      Booking Promtail [icon: log, label: "Promtail Agent"]
+    }
+  }
+}
+
+// Connections
+
+// Clients to API Gateway
+
+// API Gateway to Core Microservices
+
+// Service Discovery and Config
+
+
+// Databases
+Cleaner Service <> Cleaner DB
+Customer Service <> Customer DB
+Vehicle Service <> Vehicle DB
+Booking Service <> Booking DB
+
+// Redis Cache
+Booking Service <> Redis Cache: availability/reservation caching
+Cleaner Service <> Redis Cache: profile caching
+
+
+// Kafka Messaging
+Booking Service > Booking Events Topic: produce
+Cleaner Service < Booking Events Topic: consume
+Vehicle Service < Booking Events Topic: consume
+
+Booking Service > Cleaner Availability Updates Topic: produce
+Cleaner Service < Cleaner Availability Updates Topic: consume
+
+// Kafka Topics to Broker
+Booking Events Topic <> Kafka Broker
+Cleaner Availability Updates Topic <> Kafka Broker
+
+// Observability: Prometheus scrapes metrics
+
+// Observability: Promtail agents forward logs to Loki
+
+// Grafana visualizes metrics and logs
+Grafana <> Prometheus: metrics
+Grafana <> Loki: logs
+Clients > Ingress
+API Layer > Cleaner Service Domain
+API Layer > Customer Service Domain
+API Layer > Vehicle Service Domain
+API Layer > Booking Service Domain
+Cleaner Service Domain > Observability: forward logs
+Customer Service Domain > Observability: forward logs
+Vehicle Service Domain > Observability: forward logs
+Booking Service Domain > Observability: forward logs
+Cleaner Service Domain < Observability: scrape /actuator/prometheus
+Customer Service Domain < Observability: scrape /actuator/prometheus
+Vehicle Service Domain < Observability: scrape /actuator/prometheus
+Booking Service Domain < Observability: scrape /actuator/prometheus

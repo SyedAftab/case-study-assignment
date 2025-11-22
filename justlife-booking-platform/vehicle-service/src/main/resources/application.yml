@@ -1,0 +1,27 @@
+server:
+  port: 0
+
+spring:
+  application:
+    name: vehicle-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/vehicle_service_db
+    username: root
+    password: iceland
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${random.uuid}
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
