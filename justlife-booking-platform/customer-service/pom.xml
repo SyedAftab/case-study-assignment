@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.justlife</groupId>
         <artifactId>justlife-booking-platform</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
 
     <artifactId>customer-service</artifactId>

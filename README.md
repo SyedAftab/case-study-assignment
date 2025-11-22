@@ -88,6 +88,14 @@ mvn clean install -DskipTests
 ```
 
 ---
+
+## Discovery Service
+
+##### Registered Services
+![Registered Services](docs/discovery-server.png "Registered Services")
+
+
+---
 ## Actuator & Prometheus Monitoring
 
 All microservices include:

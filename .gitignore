@@ -22,3 +22,10 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+/justlife-booking-platform/discovery-server/target/
+/justlife-booking-platform/booking-service/target/
+/justlife-booking-platform/cleaner-service/target/
+/justlife-booking-platform/config-server/target/
+/justlife-booking-platform/api-gateway/target/
+/justlife-booking-platform/customer-service/target/
+/justlife-booking-platform/vehicle-service/target/
