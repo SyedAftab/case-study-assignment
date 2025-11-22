@@ -1,0 +1,374 @@
+{
+	"info": {
+		"_postman_id": "702f541e-bb6f-434f-bfab-de3fb6404949",
+		"name": "justlife-booking-platform",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13339977"
+	},
+	"item": [
+		{
+			"name": "bookings",
+			"item": [
+				{
+					"name": "getBookingById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{booking-platform}}/api/bookings/1",
+							"host": [
+								"{{booking-platform}}"
+							],
+							"path": [
+								"api",
+								"bookings",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getBookingById",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{booking-platform}}/api/bookings/1",
+									"host": [
+										"{{booking-platform}}"
+									],
+									"path": [
+										"api",
+										"bookings",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"header": [
+								{
+									"key": "transfer-encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Nov 2025 13:22:16 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"customerId\": 1,\n    \"vehicleId\": 1,\n    \"startTime\": \"2025-11-22T12:50:03.484814\",\n    \"endTime\": \"2025-11-22T16:50:03.484814\",\n    \"durationHours\": 4,\n    \"cleanersCount\": 2,\n    \"status\": \"CREATED\",\n    \"createdAt\": \"2025-11-22T07:33:48.087887Z\",\n    \"updatedAt\": null,\n    \"cleanerIds\": [\n        1,\n        2\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "getBookings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{booking-platform}}/api/bookings",
+							"host": [
+								"{{booking-platform}}"
+							],
+							"path": [
+								"api",
+								"bookings"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getBookings",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{booking-platform}}/api/bookings",
+									"host": [
+										"{{booking-platform}}"
+									],
+									"path": [
+										"api",
+										"bookings"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "transfer-encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Nov 2025 22:00:04 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"content\": [\n        {\n            \"id\": 1,\n            \"customerId\": 1,\n            \"vehicleId\": 1,\n            \"startTime\": \"2025-11-22T12:50:03.484814\",\n            \"endTime\": \"2025-11-22T16:50:03.484814\",\n            \"durationHours\": 4,\n            \"cleanersCount\": 2,\n            \"status\": \"CREATED\",\n            \"createdAt\": \"2025-11-22T07:33:48.087887Z\",\n            \"updatedAt\": null,\n            \"cleanerIds\": [\n                1,\n                2\n            ]\n        }\n    ],\n    \"pageable\": {\n        \"pageNumber\": 0,\n        \"pageSize\": 10,\n        \"sort\": [],\n        \"offset\": 0,\n        \"unpaged\": false,\n        \"paged\": true\n    },\n    \"totalElements\": 1,\n    \"totalPages\": 1,\n    \"last\": true,\n    \"size\": 10,\n    \"number\": 0,\n    \"sort\": [],\n    \"numberOfElements\": 1,\n    \"first\": true,\n    \"empty\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "createBooking",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{booking-platform}}/api/bookings",
+							"host": [
+								"{{booking-platform}}"
+							],
+							"path": [
+								"api",
+								"bookings"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "createBooking",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"customerId\" : 1,\r\n    \"vehicleId\" : 1,\r\n    \"startTime\" : \"2025-11-23T12:50:03.484814Z\",\r\n    \"durationHours\" : 4,\r\n    \"cleanersCount\": 2,\r\n    \"cleanerIds\" :[1,2]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{booking-platform}}/api/bookings",
+									"host": [
+										"{{booking-platform}}"
+									],
+									"path": [
+										"api",
+										"bookings"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "transfer-encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Nov 2025 22:11:14 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"customerId\": 1,\n    \"vehicleId\": 1,\n    \"startTime\": \"2025-11-23T12:50:03.484814\",\n    \"endTime\": \"2025-11-23T16:50:03.484814\",\n    \"durationHours\": 4,\n    \"cleanersCount\": 2,\n    \"status\": \"CREATED\",\n    \"createdAt\": \"2025-11-22T22:11:14.495522400Z\",\n    \"updatedAt\": null,\n    \"cleanerIds\": [\n        1,\n        2\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "cleaners",
+			"item": [
+				{
+					"name": "getCleaners",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{booking-platform}}/api/cleaners",
+							"host": [
+								"{{booking-platform}}"
+							],
+							"path": [
+								"api",
+								"cleaners"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getCleaners",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{booking-platform}}/api/cleaners",
+									"host": [
+										"{{booking-platform}}"
+									],
+									"path": [
+										"api",
+										"cleaners"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"header": [
+								{
+									"key": "transfer-encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Nov 2025 22:10:14 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"content\": [\n        {\n            \"id\": 1,\n            \"fullName\": \"Test Cleaner\",\n            \"vehicleId\": 1,\n            \"active\": true\n        },\n        {\n            \"id\": 2,\n            \"fullName\": \"Test Cleaner\",\n            \"vehicleId\": 1,\n            \"active\": true\n        },\n        {\n            \"id\": 3,\n            \"fullName\": \"Test Cleaner\",\n            \"vehicleId\": 1,\n            \"active\": true\n        },\n        {\n            \"id\": 4,\n            \"fullName\": \"Test Cleaner\",\n            \"vehicleId\": 1,\n            \"active\": true\n        },\n        {\n            \"id\": 5,\n            \"fullName\": \"Test Cleaner\",\n            \"vehicleId\": 1,\n            \"active\": true\n        },\n        {\n            \"id\": 6,\n            \"fullName\": \"Test Cleaner\",\n            \"vehicleId\": 1,\n            \"active\": true\n        },\n        {\n            \"id\": 7,\n            \"fullName\": \"Test Cleaner\",\n            \"vehicleId\": 1,\n            \"active\": true\n        },\n        {\n            \"id\": 8,\n            \"fullName\": \"Test Cleaner\",\n            \"vehicleId\": 1,\n            \"active\": true\n        },\n        {\n            \"id\": 9,\n            \"fullName\": \"Test Cleaner\",\n            \"vehicleId\": 1,\n            \"active\": true\n        }\n    ],\n    \"pageable\": {\n        \"pageNumber\": 0,\n        \"pageSize\": 10,\n        \"sort\": [],\n        \"offset\": 0,\n        \"unpaged\": false,\n        \"paged\": true\n    },\n    \"last\": true,\n    \"totalPages\": 1,\n    \"totalElements\": 9,\n    \"size\": 10,\n    \"number\": 0,\n    \"sort\": [],\n    \"first\": true,\n    \"numberOfElements\": 9,\n    \"empty\": false\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "vehicles",
+			"item": [
+				{
+					"name": "getVehicles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{just-life-booking-platform}}/api/customers/1",
+							"host": [
+								"{{just-life-booking-platform}}"
+							],
+							"path": [
+								"api",
+								"customers",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getVehicles",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{booking-platform}}/api/vehicles",
+									"host": [
+										"{{booking-platform}}"
+									],
+									"path": [
+										"api",
+										"vehicles"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "transfer-encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Nov 2025 22:09:44 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"content\": [\n        {\n            \"id\": 1,\n            \"name\": \"Test Vehicle\",\n            \"licensePlate\": \"TEST-123\",\n            \"active\": true\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Test Vehicle\",\n            \"licensePlate\": \"TEST-123\",\n            \"active\": true\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Test Vehicle\",\n            \"licensePlate\": \"TEST-123\",\n            \"active\": true\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Test Vehicle\",\n            \"licensePlate\": \"TEST-123\",\n            \"active\": true\n        },\n        {\n            \"id\": 5,\n            \"name\": \"Test Vehicle\",\n            \"licensePlate\": \"TEST-123\",\n            \"active\": true\n        },\n        {\n            \"id\": 6,\n            \"name\": \"Test Vehicle\",\n            \"licensePlate\": \"TEST-123\",\n            \"active\": true\n        },\n        {\n            \"id\": 7,\n            \"name\": \"Test Vehicle\",\n            \"licensePlate\": \"TEST-123\",\n            \"active\": true\n        },\n        {\n            \"id\": 8,\n            \"name\": \"Test Vehicle\",\n            \"licensePlate\": \"TEST-123\",\n            \"active\": true\n        },\n        {\n            \"id\": 9,\n            \"name\": \"Test Vehicle\",\n            \"licensePlate\": \"TEST-123\",\n            \"active\": true\n        },\n        {\n            \"id\": 10,\n            \"name\": \"Test Vehicle\",\n            \"licensePlate\": \"TEST-123\",\n            \"active\": true\n        }\n    ],\n    \"pageable\": {\n        \"pageNumber\": 0,\n        \"pageSize\": 10,\n        \"sort\": [],\n        \"offset\": 0,\n        \"paged\": true,\n        \"unpaged\": false\n    },\n    \"last\": false,\n    \"totalElements\": 11,\n    \"totalPages\": 2,\n    \"size\": 10,\n    \"number\": 0,\n    \"sort\": [],\n    \"numberOfElements\": 10,\n    \"first\": true,\n    \"empty\": false\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "customers",
+			"item": [
+				{
+					"name": "getCustomerById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{just-life-booking-platform}}/api/customers/1",
+							"host": [
+								"{{just-life-booking-platform}}"
+							],
+							"path": [
+								"api",
+								"customers",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getCustomerById",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{booking-platform}}/api/customers/1",
+									"host": [
+										"{{booking-platform}}"
+									],
+									"path": [
+										"api",
+										"customers",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "transfer-encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Nov 2025 22:10:31 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"fullName\": \"Test User\",\n    \"email\": \"test@example.com\",\n    \"phone\": null,\n    \"address\": null,\n    \"createdAt\": \"2025-11-21T12:26:03.484814Z\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

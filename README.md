@@ -86,9 +86,24 @@ Start in order:
 ```
 mvn clean install -DskipTests
 ```
+---
+## Swagger UI 
+Swagger UI looks like below
+#### Bookings
+![Bookings](docs/booking-swagger.png "Bookings")
+#### Cleaners
+![Cleaners](docs/cleaner-swagger.png "Cleaners")
 
 ---
+## Postman Collection
 
+Import the below postman collection and set the Environment variable booking-platform and call the APIs.
+```
+docs/justlife-booking-platform.postman_collection.json
+booking-platform = http://localhost:8080
+```
+
+---
 ## Discovery Service
 
 ##### Registered Services
