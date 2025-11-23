@@ -184,9 +184,10 @@ management:
 ![Suggested Architecture](docs/recommended-architecture-diagram.png "Suggested Architecture")
 1. Implementation of Cache using Redis and Spring Cache  
 2. OAuth 2.x and OIDC(Custom/Existing) like KeyCloak
-3. Use Spring Cloud Stack for Development and K8s for Production environment.
-4. Using of Service Mesh like ISTIO.
-5. Add invoice,payment and notification services.  
+3. Using drool for the Rules on different Business Objects to externalize Rules from code.
+4. Use Spring Cloud Stack for Development and K8s for Production environment.
+5. Using of Service Mesh like ISTIO.
+6. Add invoice,payment and notification services.  
 
 ### OLAP and Data pipeline
 
